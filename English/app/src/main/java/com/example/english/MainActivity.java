@@ -8,9 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static ListeVerbes listeVerbes = null;
 
     SearchView sv;
     Button controle;
@@ -24,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
         controle = findViewById(R.id.controle);
         lv=findViewById(R.id.lv);
 
-        ListeVerbes listeVerbes = new ListeVerbes();
-
-        listeVerbes.construireListe(this);
+        if(listeVerbes == null)
+        {
+            listeVerbes = new ListeVerbes();
+            listeVerbes.construireListe(this);
+        }
 
 
 
@@ -47,8 +54,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void controle (View v){
-        Intent intent = new Intent(MainActivity.this, VerbeControle.class);
+        ArrayList<Integer> alreadyPick = new ArrayList<>();
+        ArrayList<VerbeQuestion> pickedVerbs = new ArrayList<>();
+        Random rand = new Random();
+        for(int i = 0 ; i < 20 ; i++)
+        {
+            Integer r = rand.nextInt(listeVerbes.size());
+            while(alreadyPick.contains(r))
+            {
+                r = rand.nextInt(listeVerbes.size());
+            }
+            alreadyPick.add(r);
+            pickedVerbs.add(new VerbeQuestion(listeVerbes.get(r)));
+        }
+        System.out.println(pickedVerbs.size());
+        Intent intent = new Intent(MainActivity.this, SaisiVerbeControle.class);
+        intent.putExtra("liste", pickedVerbs);
         startActivity(intent);
     }
-
 }

@@ -1,6 +1,8 @@
 package com.example.english;
 
-public class Verbe {
+import java.io.Serializable;
+
+public class Verbe implements Serializable {
     String infintif;
     String preterit;
     String participe;

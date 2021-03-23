@@ -11,29 +11,34 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListeVerbes {
+public class ListeVerbes{
 
     List<Verbe> list;
 
-    public ListeVerbes() {
+    public ListeVerbes()
+    {
         list = new ArrayList<Verbe>();
     }
 
-    public int size() {
+    public int size()
+    {
         return list.size();
     }
 
-    public Verbe get(int pos) {
+    public Verbe get(int pos)
+    {
         return list.get(pos);
     }
 
-    public Verbe get(String verbe){
+    public Verbe get(String verbe)
+    {
         for (Verbe v:list
              ) {
             if (v.getInfintif().equals(verbe)||v.getFrancais().equals(verbe)) return v;
         }
         return null;
     }
+
     public void construireListe(Context context) {
 
 
