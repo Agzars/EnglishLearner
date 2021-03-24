@@ -2,14 +2,14 @@ package com.example.english;
 
 import java.io.Serializable;
 
-public class VerbeQuestion implements Serializable {
+public class IrregularVerbQuestion implements Serializable {
 
     private Verbe verbe;
     private String preteritAnswer;
     private String infinitifAnswer;
     private String participeAnswer;
 
-    public VerbeQuestion(Verbe v)
+    public IrregularVerbQuestion(Verbe v)
     {
         this.verbe = v;
     }

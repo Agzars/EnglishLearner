@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void controle (View v){
         ArrayList<Integer> alreadyPick = new ArrayList<>();
-        ArrayList<VerbeQuestion> pickedVerbs = new ArrayList<>();
+        ArrayList<IrregularVerbQuestion> pickedVerbs = new ArrayList<>();
         Random rand = new Random();
         for(int i = 0 ; i < 20 ; i++)
         {
@@ -65,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 r = rand.nextInt(listeVerbes.size());
             }
             alreadyPick.add(r);
-            pickedVerbs.add(new VerbeQuestion(listeVerbes.get(r)));
+            pickedVerbs.add(new IrregularVerbQuestion(listeVerbes.get(r)));
         }
         System.out.println(pickedVerbs.size());
-        Intent intent = new Intent(MainActivity.this, SaisiVerbeControle.class);
-        intent.putExtra("liste", pickedVerbs);
+        Intent intent = new Intent(MainActivity.this, SaisiIrregularVerb.class);
+        intent.putExtra("list", pickedVerbs);
         startActivity(intent);
     }
 }
