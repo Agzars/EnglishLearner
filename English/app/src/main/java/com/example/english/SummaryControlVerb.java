@@ -29,13 +29,13 @@ public class SummaryControlVerb extends AppCompatActivity {
             Intent intent = new Intent(SummaryControlVerb.this, IrregularVerbScore.class);
             intent.putExtra("list", list);
             startActivity(intent);
-            //TODO lancer l'activité de correction
+            finish();
         });
     }
 
     public void startSaisiVerb(int position, ArrayList<IrregularVerbQuestion> list)
     {
-        Intent intent = new Intent(SummaryControlVerb.this, SaisiIrregularVerb.class);
+        Intent intent = new Intent(SummaryControlVerb.this, IrregularVerbDisplay.class);
         intent.putExtra("id", position);
         intent.putExtra("list", list);
         startActivity(intent);

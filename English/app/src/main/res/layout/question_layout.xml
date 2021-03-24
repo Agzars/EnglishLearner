@@ -8,7 +8,7 @@
         android:id="@+id/textViewQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:text="TextView" />
 
     <TextView
@@ -17,6 +17,6 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="TextView"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

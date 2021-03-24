@@ -2,6 +2,7 @@ package com.example.english;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,6 +32,10 @@ public class IrregularVerbScore extends AppCompatActivity {
 
     public void displayCorrection(int pos, ArrayList<IrregularVerbQuestion> list)
     {
-
+        Intent intent = new Intent(IrregularVerbScore.this, IrregularVerbDisplay.class);
+        intent.putExtra("list", list);
+        intent.putExtra("id", pos);
+        intent.putExtra("correction", true);
+        startActivity(intent);
     }
 }

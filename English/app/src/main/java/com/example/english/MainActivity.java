@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             alreadyPick.add(r);
             pickedVerbs.add(new IrregularVerbQuestion(listeVerbes.get(r)));
         }
-        Intent intent = new Intent(MainActivity.this, SaisiIrregularVerb.class);
+        Intent intent = new Intent(MainActivity.this, IrregularVerbDisplay.class);
         intent.putExtra("list", pickedVerbs);
         startActivity(intent);
     }

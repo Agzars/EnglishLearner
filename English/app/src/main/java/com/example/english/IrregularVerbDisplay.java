@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class SaisiIrregularVerb extends AppCompatActivity {
+public class IrregularVerbDisplay extends AppCompatActivity {
 
     private ArrayList<IrregularVerbQuestion> listQuestions;
     private int currentVerb;
@@ -20,11 +20,23 @@ public class SaisiIrregularVerb extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saisi_irregular_verb);
+        setContentView(R.layout.activity_rregular_verb_display);
         this.listQuestions = (ArrayList<IrregularVerbQuestion>) getIntent().getExtras().get("list");
         this.currentVerb = getIntent().getExtras().getInt("id", 0);
         this.isCorrection = getIntent().getExtras().getBoolean("correction", false);
         this.displayVerb(currentVerb);
+
+        if(isCorrection)
+        {
+            EditText saisiPreterit = findViewById(R.id.editTextSaisiPreterit);
+            saisiPreterit.setEnabled(false);
+
+            EditText saisiInfinitif = findViewById(R.id.editTextSaisiInfinitif);
+            saisiInfinitif.setEnabled(false);
+
+            EditText saisiParticipe = findViewById(R.id.editTextSaisiParticipe);
+            saisiParticipe.setEnabled(false);
+        }
 
         ImageButton buttonPrevious = findViewById(R.id.imageButtonPrevious);
         buttonPrevious.setOnClickListener(e -> {
@@ -47,10 +59,18 @@ public class SaisiIrregularVerb extends AppCompatActivity {
 
         Button finish = findViewById(R.id.buttonFinish);
         finish.setOnClickListener(e -> {
-            saveSaisi();
-            Intent intent = new Intent(SaisiIrregularVerb.this, SummaryControlVerb.class);
+            Intent intent;
+            if(!isCorrection)
+            {
+                saveSaisi();
+                intent = new Intent(IrregularVerbDisplay.this, SummaryControlVerb.class);
+            }
+            else {
+                intent = new Intent(IrregularVerbDisplay.this, IrregularVerbScore.class);
+            }
             intent.putExtra("list", this.listQuestions);
             startActivity(intent);
+            finish();
         });
     }
 

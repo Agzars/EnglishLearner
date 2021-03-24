@@ -14,7 +14,7 @@
         <activity android:name=".IrregularVerbScore"></activity>
         <activity android:name=".SummaryControlVerb" />
         <activity android:name=".VerbeDictionnaire" />
-        <activity android:name=".SaisiIrregularVerb" />
+        <activity android:name=".IrregularVerbDisplay" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
