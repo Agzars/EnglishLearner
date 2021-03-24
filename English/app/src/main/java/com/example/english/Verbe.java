@@ -3,17 +3,17 @@ package com.example.english;
 import java.io.Serializable;
 
 public class Verbe implements Serializable {
-    String infintif;
+    String infinitif;
     String preterit;
     String participe;
     String francais;
 
     public String getInfintif() {
-        return infintif;
+        return infinitif;
     }
 
     public void setInfintif(String infintif) {
-        this.infintif = infintif;
+        this.infinitif = infintif;
     }
 
     public String getPreterit() {
@@ -40,8 +40,8 @@ public class Verbe implements Serializable {
         this.francais = francais;
     }
 
-    public Verbe(String infintif, String preterit, String participe, String francais) {
-        this.infintif = infintif;
+    public Verbe(String infinitif, String preterit, String participe, String francais) {
+        this.infinitif = infinitif;
         this.preterit = preterit;
         this.participe = participe;
         this.francais = francais;

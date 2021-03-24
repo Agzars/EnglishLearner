@@ -5,9 +5,10 @@ import java.io.Serializable;
 public class IrregularVerbQuestion implements Serializable {
 
     private Verbe verbe;
-    private String preteritAnswer;
-    private String infinitifAnswer;
-    private String participeAnswer;
+    private String preteritAnswer = "";
+    private String infinitifAnswer = "";
+    private String participeAnswer = "";
+    private int score = 0;
 
     public IrregularVerbQuestion(Verbe v)
     {
@@ -41,4 +42,26 @@ public class IrregularVerbQuestion implements Serializable {
     public void setParticipeAnswer(String participeAnswer) {
         this.participeAnswer = participeAnswer;
     }
+
+    public void correct()
+    {
+        if(preteritAnswer.equalsIgnoreCase(verbe.getPreterit()))
+        {
+            score++;
+        }
+        if(infinitifAnswer.equalsIgnoreCase(verbe.getInfintif()))
+        {
+            score++;
+        }
+        if(participeAnswer.equalsIgnoreCase(verbe.getParticipe()))
+        {
+            score++;
+        }
+    }
+
+    public int getScore()
+    {
+        return this.score;
+    }
+
 }

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SummaryControlVerb"></activity>
+        <activity android:name=".IrregularVerbScore"></activity>
+        <activity android:name=".SummaryControlVerb" />
         <activity android:name=".VerbeDictionnaire" />
         <activity android:name=".SaisiIrregularVerb" />
         <activity android:name=".MainActivity">

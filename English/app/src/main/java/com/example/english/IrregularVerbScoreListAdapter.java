@@ -1,7 +1,7 @@
 package com.example.english;
 
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +11,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class IrregularVerbQuestionListAdapter extends BaseAdapter {
+public class IrregularVerbScoreListAdapter extends BaseAdapter {
 
     private ArrayList<IrregularVerbQuestion> list;
     private LayoutInflater mInflater;
-    private SummaryControlVerb activity;
+    private IrregularVerbScore activity;
 
-    public IrregularVerbQuestionListAdapter(ArrayList<IrregularVerbQuestion> list, SummaryControlVerb act)
+    public IrregularVerbScoreListAdapter(ArrayList<IrregularVerbQuestion> list, IrregularVerbScore act)
     {
         this.list = list;
         this.activity = act;
@@ -45,7 +45,7 @@ public class IrregularVerbQuestionListAdapter extends BaseAdapter {
         //(1) : Réutilisation des layouts
         if (convertView == null) {
             //Initialisation de notre item à partir du  layout XML "personne_layout.xml"
-            layoutItem = (LinearLayout) mInflater.inflate(R.layout.question_layout, parent, false);
+            layoutItem = (LinearLayout) mInflater.inflate(R.layout.score_layout, parent, false);
         } else {
             layoutItem = (LinearLayout) convertView;
         }
@@ -53,14 +53,32 @@ public class IrregularVerbQuestionListAdapter extends BaseAdapter {
         //(2) : Récupération des TextView de notre layout
         TextView question = layoutItem.findViewById(R.id.textViewQuestion);
         TextView idQuestion = layoutItem.findViewById(R.id.textViewIdQuestion);
+        TextView score = layoutItem.findViewById(R.id.textViewScore);
 
         //(3) : Renseignement des valeurs
         question.setText(list.get(position).getVerbe().getFrancais());
         idQuestion.setText(String.valueOf(position+1));
+        score.setText(list.get(position).getScore() + " / 3");
+
+        switch(list.get(position).getScore()){
+            case 0:
+                layoutItem.setBackgroundResource(R.color.red);
+                break;
+            case 1:
+                layoutItem.setBackgroundResource(R.color.orange);
+                break;
+            case 2:
+                layoutItem.setBackgroundResource(R.color.yellow);
+                break;
+            case 3:
+                layoutItem.setBackgroundResource(R.color.green);
+                break;
+        }
+
 
 
         layoutItem.setOnClickListener(e -> {
-            this.activity.startSaisiVerb(position, list);
+            this.activity.displayCorrection(position, list);
         });
         //On retourne l'item créé.
         return layoutItem;
