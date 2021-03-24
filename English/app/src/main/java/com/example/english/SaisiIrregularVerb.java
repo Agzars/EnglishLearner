@@ -24,49 +24,48 @@ public class SaisiIrregularVerb extends AppCompatActivity {
         this.listQuestions = (ArrayList<IrregularVerbQuestion>) getIntent().getExtras().get("list");
         this.currentVerb = getIntent().getExtras().getInt("id", 0);
         this.isCorrection = getIntent().getExtras().getBoolean("correction", false);
-        this.displayVerb(currentVerb, 0);
+        this.displayVerb(currentVerb);
 
         ImageButton buttonPrevious = findViewById(R.id.imageButtonPrevious);
         buttonPrevious.setOnClickListener(e -> {
             if(currentVerb > 0)
             {
+                saveSaisi();
                 currentVerb--;
-                displayVerb(currentVerb, currentVerb +1);
+                displayVerb(currentVerb);
             }
         });
         ImageButton buttonNext = findViewById(R.id.imageButtonNext);
         buttonNext.setOnClickListener(e -> {
             if(currentVerb < 19)
             {
+                saveSaisi();
                 currentVerb++;
-                displayVerb(currentVerb, currentVerb -1);
+                displayVerb(currentVerb);
             }
         });
 
         Button finish = findViewById(R.id.buttonFinish);
         finish.setOnClickListener(e -> {
-            displayVerb(currentVerb, currentVerb);
+            saveSaisi();
             Intent intent = new Intent(SaisiIrregularVerb.this, SummaryControlVerb.class);
             intent.putExtra("list", this.listQuestions);
             startActivity(intent);
         });
     }
 
-    public void displayVerb(int pos, int previous)
+    public void displayVerb(int pos)
     {
         TextView verbeFrancais = findViewById(R.id.textViewVerbeFrancais);
         verbeFrancais.setText(listQuestions.get(pos).getVerbe().francais);
 
         EditText saisiPreterit = findViewById(R.id.editTextSaisiPreterit);
-        listQuestions.get(previous).setPreteritAnswer(saisiPreterit.getText().toString());
         saisiPreterit.setText(listQuestions.get(pos).getPreteritAnswer());
 
         EditText saisiInfinitif = findViewById(R.id.editTextSaisiInfinitif);
-        listQuestions.get(previous).setInfinitifAnswer(saisiInfinitif.getText().toString());
         saisiInfinitif.setText(listQuestions.get(pos).getInfinitifAnswer());
 
         EditText saisiParticipe = findViewById(R.id.editTextSaisiParticipe);
-        listQuestions.get(previous).setParticipeAnswer(saisiParticipe.getText().toString());
         saisiParticipe.setText(listQuestions.get(pos).getParticipeAnswer());
 
         TextView idVerbe = findViewById(R.id.textViewIdVerbe);
@@ -81,6 +80,16 @@ public class SaisiIrregularVerb extends AppCompatActivity {
             TextView correctionParticipe = findViewById(R.id.textViewCorrectionParticipe);
             correctionParticipe.setText(listQuestions.get(pos).getVerbe().getParticipe());
         }
+    }
+
+    public void saveSaisi()
+    {
+        EditText saisiPreterit = findViewById(R.id.editTextSaisiPreterit);
+        listQuestions.get(currentVerb).setPreteritAnswer(saisiPreterit.getText().toString());
+        EditText saisiInfinitif = findViewById(R.id.editTextSaisiInfinitif);
+        listQuestions.get(currentVerb).setInfinitifAnswer(saisiInfinitif.getText().toString());
+        EditText saisiParticipe = findViewById(R.id.editTextSaisiParticipe);
+        listQuestions.get(currentVerb).setParticipeAnswer(saisiParticipe.getText().toString());
     }
 
 }
