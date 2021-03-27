@@ -16,40 +16,20 @@ public class MainActivity extends AppCompatActivity {
 
     public static ListeVerbes listeVerbes = null;
 
-    SearchView sv;
+
     Button controle;
-    ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sv = findViewById(R.id.search);
         controle = findViewById(R.id.controle);
-        lv=findViewById(R.id.lv);
 
         if(listeVerbes == null)
         {
             listeVerbes = new ListeVerbes();
             listeVerbes.construireListe(this);
         }
-
-
-
-        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(MainActivity.this, VerbeDictionnaire.class);
-                intent.putExtra("verbe", query);
-                startActivity(intent);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
     }
 
     public void controle (View v){
