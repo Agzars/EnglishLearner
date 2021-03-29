@@ -31,5 +31,6 @@ public class VerbeDictionnaire extends AppCompatActivity {
 pret.setText(v.getPreterit());
 part.setText(v.getParticipe());
         }
+        else verbe.setText("Verbe non trouvé :(");
     }
 }

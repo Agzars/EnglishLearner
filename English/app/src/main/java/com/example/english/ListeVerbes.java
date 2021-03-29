@@ -34,7 +34,7 @@ public class ListeVerbes{
     {
         for (Verbe v:list
              ) {
-            if (v.getInfintif().equals(verbe)||v.getFrancais().equals(verbe)) return v;
+            if (v.getInfintif().equalsIgnoreCase(verbe)||v.getFrancais().equalsIgnoreCase(verbe)) return v;
         }
         return null;
     }
@@ -48,8 +48,14 @@ public class ListeVerbes{
         try {
             // Récupération du fichier json
 
-            JSONArray jsonArray = new JSONArray(getJSONFromAsset(context));
+            JSONArray jsonArray;
+            HttpHandler sh = new HttpHandler();
 
+            try {
+                jsonArray = new JSONArray(sh.makeServiceCall("https://raw.githubusercontent.com/Agzars/EnglishLearner/main/English/app/src/main/assets/verbes.json"));
+            } catch (Exception e){
+                jsonArray = new JSONArray(getJSONFromAsset(context));
+            }
             // Récupération des recettes
             for (int i = 0; i < jsonArray.length(); i++) {
                 list.add(getVerbeFromJSONObject(jsonArray.getJSONObject(i), context));
@@ -104,4 +110,5 @@ public class ListeVerbes{
         return json;
 
     }
+
 }
