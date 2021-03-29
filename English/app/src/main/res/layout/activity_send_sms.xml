@@ -10,12 +10,11 @@
         android:id="@+id/phoneNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
         android:layout_marginTop="204dp"
         android:ems="10"
+        android:hint="Numéro de téléphone"
         android:inputType="textPersonName"
-        android:text="Numéro de tél."
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,11 +22,10 @@
         android:id="@+id/envoyerSMS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginLeft="161dp"
         android:layout_marginTop="92dp"
         android:onClick="share"
         android:text="Envoyer"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
