@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/livre0"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre1"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre2"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre3"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre4"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre5"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre6"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre7"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre8"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre9"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre10"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre11"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre12"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre13"
+        android:duration="100" />
+    <item android:drawable="@drawable/livre14"
+        android:duration="100" />
+
+
+</animation-list>

@@ -2,13 +2,15 @@ package com.example.english;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class VerbeDictionnaire extends AppCompatActivity {
 
     TextView verbe, inf, pret, part;
-
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,5 +34,11 @@ pret.setText(v.getPreterit());
 part.setText(v.getParticipe());
         }
         else verbe.setText("Verbe non trouvé :(");
+        img = findViewById(R.id.imageView);
+        img.setBackgroundResource(R.drawable.livre);
+        AnimationDrawable anim= (AnimationDrawable)img.getBackground();
+        anim.start();
+
     }
+
 }

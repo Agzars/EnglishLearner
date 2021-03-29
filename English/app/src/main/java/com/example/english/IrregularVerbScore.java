@@ -53,4 +53,10 @@ public class IrregularVerbScore extends AppCompatActivity {
         Intent intent = new Intent(IrregularVerbScore.this, SendSMS.class);
         startActivity(intent);
     }
+
+    public void exit(View v){
+        Intent intent = new Intent(IrregularVerbScore.this, MainActivity.class);
+        startActivity(intent);
+
+    }
 }

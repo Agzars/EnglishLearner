@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SendSMS extends AppCompatActivity {
+
+    // code trouvé sur https://www.tutorialspoint.com/android/android_sending_sms.htm
+
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0 ;
     private EditText no;
 
